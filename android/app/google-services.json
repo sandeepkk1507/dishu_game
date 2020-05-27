@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "7117031395",
+    "firebase_url": "https://dishu-game.firebaseio.com",
+    "project_id": "dishu-game",
+    "storage_bucket": "dishu-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7117031395:android:85f60410f8945d04bb02d6",
+        "android_client_info": {
+          "package_name": "com.sandeep.dishu_game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7117031395-nij94381v6b43i285uv2mpijjt8034ka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp7YLoJVwimyoEe6cIRcwdImSI9kdLvzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7117031395-nij94381v6b43i285uv2mpijjt8034ka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
