@@ -88,9 +88,9 @@ class _SettingsFormState extends State<SettingsForm> {
                     ),
                     onPressed: () async {
                       if (_formKey.currentState.validate()) {
-                           print(_currentName);
-                           print(_currentSugars);
-                           print(_currentStrength);
+                        print(_currentName);
+                        print(_currentSugars);
+                        print(_currentStrength);
                         await DatabaseService(uid: user.uid).updateUserData(
                             _currentSugars ?? userData.sugars,
                             _currentName ?? userData.name,
