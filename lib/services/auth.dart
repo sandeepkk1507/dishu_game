@@ -9,12 +9,12 @@ class AuthService {
   User _userFromFirebaseUser(FirebaseUser user) {
     return user != null ? User(uid: user.uid) : null;
   }
-  
+
   //auth change user stream
   Stream<User> get user {
-    return _auth.onAuthStateChanged
-      .map(_userFromFirebaseUser);
+    return _auth.onAuthStateChanged.map(_userFromFirebaseUser);
   }
+
   //Sign In anon
   Future signInAnon() async {
     try {
@@ -26,10 +26,12 @@ class AuthService {
       return null;
     }
   }
+
   //sign in email
   Future signInWithEmailAndPassword(String email, String password) async {
     try {
-      AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      AuthResult result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
       FirebaseUser user = result.user;
       return _userFromFirebaseUser(user);
     } catch (e) {
@@ -37,10 +39,12 @@ class AuthService {
       return null;
     }
   }
+
   //register email & password
   Future registerWithEmailAndPassword(String email, String password) async {
     try {
-      AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      AuthResult result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
       FirebaseUser user = result.user;
       //create a new document for the user with uid
       await DatabaseService(uid: user.uid).updateUserData('0', 'new crew', 100);
@@ -50,6 +54,7 @@ class AuthService {
       return null;
     }
   }
+
   //signout
   Future signOut() async {
     try {

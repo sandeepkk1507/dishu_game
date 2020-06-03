@@ -55,7 +55,8 @@ class _RegisterState extends State<Register> {
             ),
             TextFormField(
               decoration: textInputDecoration.copyWith(hintText: 'Password'),
-              validator: (val) => val.length < 6 ? 'Enter password 6 plus char long' : null,
+              validator: (val) =>
+                  val.length < 6 ? 'Enter password 6 plus char long' : null,
               obscureText: true,
               onChanged: (val) {
                 setState(() {
@@ -77,20 +78,23 @@ class _RegisterState extends State<Register> {
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
                     loading = true;
-                    dynamic result = await _authService.registerWithEmailAndPassword(email,password);
-                      if(result == null) {
-                        setState(() {
-                          loading = false;
-                          error = 'Please supply a valid email';
-                        });
-                      }
+                    dynamic result = await _authService
+                        .registerWithEmailAndPassword(email, password);
+                    if (result == null) {
+                      setState(() {
+                        loading = false;
+                        error = 'Please supply a valid email';
+                      });
+                    }
                   } else {}
                 }),
-                SizedBox(height: 20.0,),
-                Text(
-                  error,
-                  style: TextStyle(color: Colors.red, fontSize: 14.0),
-                )
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              error,
+              style: TextStyle(color: Colors.red, fontSize: 14.0),
+            )
           ]),
         ),
       ),

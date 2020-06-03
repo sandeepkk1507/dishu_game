@@ -1,13 +1,22 @@
-import 'package:dishu_game/models/brew.dart';
+import 'package:dishu_game/models/category.dart';
 import 'package:dishu_game/screens/home/settings_form.dart';
 import 'package:dishu_game/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:dishu_game/services/database.dart';
 import 'package:provider/provider.dart';
-import 'package:dishu_game/screens/home/brew_list.dart';
 
-class Home extends StatelessWidget {
+import 'package:dishu_game/screens/home/category_list.dart';
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   final AuthService _auth = AuthService();
+  Stream categoryStream;
+  DatabaseService databaseService = new DatabaseService();
+
   @override
   Widget build(BuildContext context) {
     void _showSettingsPanel() {
@@ -21,8 +30,8 @@ class Home extends StatelessWidget {
           });
     }
 
-    return StreamProvider<List<Brew>>.value(
-      value: DatabaseService().brews,
+    return StreamProvider<List<Category>>.value(
+      value: databaseService.categories,
       child: Scaffold(
         backgroundColor: Colors.brown[50],
         appBar: AppBar(
@@ -47,10 +56,9 @@ class Home extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/coffee_bg.png'), 
-                fit: BoxFit.cover),
+                image: AssetImage('assets/coffee_bg.png'), fit: BoxFit.cover),
           ),
-          child: BrewList(),
+          child: CategoryList(),
         ),
       ),
     );
