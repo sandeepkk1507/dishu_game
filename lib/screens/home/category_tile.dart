@@ -1,4 +1,5 @@
 import 'package:dishu_game/models/category.dart';
+import 'package:dishu_game/screens/play/play_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryTile extends StatelessWidget {
@@ -8,7 +9,11 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) => PlayScreen(),
+        ));
+      },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 24),
         height: 100,
